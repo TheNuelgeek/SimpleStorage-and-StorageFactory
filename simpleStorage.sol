@@ -29,9 +29,12 @@ contract simpleStorage{
         return favouriteNumber;
     }
 
+   //{favouriteNumber: _favouriteNum, name:_name}
     function addPeopleFavNumAndName(uint256 _favouriteNum, string memory _name) public {
-        Person memory _person = Person({favouriteNumber: _favouriteNum, name:_name});
+        Person memory _person = Person(_favouriteNum, _name);
         people.push(_person);
-        nameToFavouriteNumber[_name] = _favouriteNumber;
+       
+       // people.push(Person(_favouriteNum, _name));
+        nameToFavouriteNumber[_name] = _favouriteNum;
     }
 }
